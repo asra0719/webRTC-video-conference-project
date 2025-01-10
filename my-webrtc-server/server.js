@@ -1,10 +1,18 @@
 const path = require('path');
 const express = require('express');
-const app = express();
+const cors = require('cors');  // Import the cors package
 const socketIO = require('socket.io');
 
+const app = express();
 const port = process.env.PORT || 8080;
 const env = process.env.NODE_ENV || 'development';
+
+// CORS configuration to allow your frontend to access the server
+app.use(cors({
+    origin: 'https://aslam110-max.github.io', // Allow GitHub Pages domain
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type']
+}));
 
 // Redirect to https
 app.get('*', (req, res, next) => {
@@ -27,11 +35,11 @@ server.listen(port, () => {
  */
 const io = socketIO(server);
 
-
 io.sockets.on('connection', function (socket) {
     socket.on('chat message', ({ message, room }) => {
-    socket.broadcast.to(room).emit('chat message', { sender: socket.id, message });
-});
+        socket.broadcast.to(room).emit('chat message', { sender: socket.id, message });
+    });
+
     /**
      * Log actions to the client
      */
