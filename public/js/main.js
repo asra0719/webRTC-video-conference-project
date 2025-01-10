@@ -11,7 +11,7 @@ const chatMessages = document.querySelector('#chatMessages');
 const muteBtn = document.querySelector('#muteBtn');
 const cameraBtn = document.querySelector('#cameraBtn');
 
-let audioEnabled = true;
+let audioEnabled = true;//new
 let videoEnabled = true;
 
 muteBtn.addEventListener('click', () => {
