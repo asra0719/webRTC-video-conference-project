@@ -1,6 +1,6 @@
 'use strinct';
 
-const socket = io('https://webrtc-server-lake.vercel.app/');
+const socket = io.connect();
 
 
 const localVideo = document.querySelector('#localVideo-container video');
