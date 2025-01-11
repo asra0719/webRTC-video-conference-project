@@ -1,6 +1,6 @@
 'use strinct';
 
-const socket = io('https://webrtc-server-aqynich1s-aslams-projects-199a6f18.vercel.app');
+const socket = io('https://webrtc-server-lake.vercel.app/');
 
 
 const localVideo = document.querySelector('#localVideo-container video');
