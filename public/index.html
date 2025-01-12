@@ -9,43 +9,48 @@
 </head>
 
 <body>
-    <div id="app-container">
+    <div >
         <header>
-            <h1>WebRTC Video Conference</h1>
+            <h1>Join Video Conference</h1>
         </header>
-
-        <section class="room-section">
-            <div class="input-group">
-                <label for="roomId">Room ID</label>
-                <input id="roomId" type="text" placeholder="Enter room ID" />
+        <div id="app-container">
+            
+            <div>
+                <section class="room-section">
+                    <div class="room-container">
+                        <input id="roomId" type="text" placeholder="Enter Room ID" class="input-field" />
+                        <button id="joinBtn" class="btn primary-btn">Join Room</button>
+                    </div>
+                    <p id="notification"></p>
+                </section>
+        
+                <section class="video-chat">
+                    <div id="localVideo-container" class="video-box">
+                        <video autoplay playsinline muted></video>
+                    </div>
+                    <div id="videoGrid" class="video-grid"></div>
+                </section>
+        
+                <section class="controls">
+                    <button id="muteBtn" class="btn control-btn">Mute</button>
+                    <button id="cameraBtn" class="btn control-btn">Disable Camera</button>
+                </section>
+                <section class="room-actions">
+                    <button id="leaveBtn" class="btn secondary-btn">Leave Room</button>
+                </section>
             </div>
+            
+    
+            <section id="chat" class="chat-box">
+                <div id="chatMessages" class="messages"></div>
+                <div class="chat-input-group">
+                    <input id="chatInput" type="text" placeholder="Type a message..." class="input-field" />
+                    <button id="sendBtn" class="btn secondary-btn">Send</button>
+                </div>
+            </section>
+        </div>
 
-            <div class="room-actions">
-                <button id="joinBtn" class="btn primary-btn">Join</button>
-                <button id="leaveBtn" class="btn secondary-btn">Leave</button>
-            </div>
-            <p id="notification"></p>
-        </section>
-
-        <section id="video-section">
-            <div id="videoGrid" class="grid-container"></div>
-            <div id="localVideo-container">
-                <video autoplay playsinline muted></video>
-            </div>
-        </section>
-
-        <section class="controls">
-            <button id="muteBtn" class="btn control-btn">Mute</button>
-            <button id="cameraBtn" class="btn control-btn">Turn Off Camera</button>
-        </section>
-
-        <section id="chat">
-            <div id="chatMessages"></div>
-            <div class="chat-input-group">
-                <input id="chatInput" type="text" placeholder="Type a message..." />
-                <button id="sendBtn" class="btn primary-btn">Send</button>
-            </div>
-        </section>
+        
     </div>
 
     <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
